@@ -16,8 +16,47 @@ namespace WpfApp_Demo_Github;
 /// </summary>
 public partial class MainWindow : Window
 {
+
+    public enum Grade
+    {
+        hard,
+        easy,
+        medium
+    }
+
+    public enum Days
+    {
+        Monday,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday
+    }
+
     public MainWindow()
     {
         InitializeComponent();
+    }
+
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+
+        int getal = int.TryParse(txtMyBox.Text, out getal) ? getal : 0;
+
+        MessageBox.Show(getal.ToString());
+        
+        
+        
+    }
+
+    private void txtMyBox_KeyDown(object sender, KeyEventArgs e)
+    {
+        //e.Handled = true; // this will prevent the user from typing in the textbox
+        // only numbers
+        e.Handled = !char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key));
+
+
     }
 }
