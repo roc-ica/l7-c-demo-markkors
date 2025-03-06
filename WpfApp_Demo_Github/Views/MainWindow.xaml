@@ -8,16 +8,6 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
-        <StackPanel>
-            <Button Content="Click Me"
-                    Click="Button_Click"></Button>
-            <TextBox 
-                KeyDown="txtMyBox_KeyDown"
-                TextWrapping="Wrap"
-                     Text="TextBox"
-                     Width="120" 
-                     Name="txtMyBox"/>
-        </StackPanel>
-        
+      
     </Grid>
 </Window>
