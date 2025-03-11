@@ -6,8 +6,45 @@
         xmlns:local="clr-namespace:WpfApp_Demo_Github"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin"
+                    Value="15" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin"
+                    Value="2" />
+        </Style>
+    </Window.Resources>
     <Grid>
-
-      
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <TextBox Name="txtValue1"/> 
+            <TextBox Name="txtValue2" KeyDown="txtValue2_KeyDown"/> 
+            <TextBox Name="txtValue3"/>
+            <Button Content="Convert"
+                    Click="Button_Click" />
+            <Button Content="SelectedItem"
+                    Click="Button_Item_Selected" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <ListBox x:Name="lstPersons" ItemsSource="{Binding Persons}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding name}" />
+                            <TextBlock Text="{Binding age}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>  
+        </StackPanel>
     </Grid>
 </Window>
