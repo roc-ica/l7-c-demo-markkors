@@ -55,8 +55,9 @@ public partial class MainWindow : Window
 
     private void Button_Item_Selected(object sender, RoutedEventArgs e)
     {
-        
+        // get the selected item (converteer expliciet naar Person)
         Person selected_person = (Person)lstPersons.SelectedItem;
+        // remove the selected item from the list
         vm.Persons.Remove(selected_person);
 
 
