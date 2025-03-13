@@ -9,9 +9,8 @@ namespace WpfApp_Demo_Github.Models
     class Sum
     {
 
-
-
         private string _firstPart;
+        private string _secondPart;
         
         public string firstPart {
             get { 
@@ -20,11 +19,20 @@ namespace WpfApp_Demo_Github.Models
             set { 
                 
                 
-                _firstPart = value; } 
+                _firstPart = value; }
         }
 
-        public string secondPart { get; set; }
+        public string secondPart
+        {
+            get { return _secondPart; }
+            set { _secondPart = value; }
+        }
 
+        public void generate()
+        {
+            // generate a random sum
+
+        }
 
     }
 }
