@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp_Demo_Github"
+        xmlns:models="clr-namespace:WpfApp_Demo_Github.Models"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
@@ -16,6 +17,9 @@
                     Value="2" />
         </Style>
     </Window.Resources>
+    <Window.DataContext>
+        <models:Viewmodel />
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -28,7 +32,7 @@
         <StackPanel Grid.Column="0" Grid.Row="0">
             <TextBox Name="txtValue1"/> 
             <TextBox Name="txtValue2" KeyDown="txtValue2_KeyDown"/> 
-            <TextBox Name="txtValue3"/>
+            <TextBox Name="txtValue3" Text="{Binding TestProp}"/>
             <Button Content="Convert"
                     Click="Button_Click" />
             <Button Content="SelectedItem"

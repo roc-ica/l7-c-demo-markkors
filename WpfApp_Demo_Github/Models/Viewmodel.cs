@@ -12,12 +12,16 @@ namespace WpfApp_Demo_Github.Models
     {
         // members
         private ObservableCollection<Person> _persons;
+        private List<string> _names;
 
+        private string _testProp;
 
         // constructor
         public Viewmodel()
         {
             _persons = new ObservableCollection<Person>();
+
+           
         }   
 
 
@@ -42,6 +46,14 @@ namespace WpfApp_Demo_Github.Models
                 _persons = value;
                 OnPropertyChanged("Persons");
             }
+        }
+
+        public string TestProp{
+            get { return _testProp; } 
+            set { 
+                _testProp = value;
+                OnPropertyChanged("TestProp");
+            } 
         }
     }
     

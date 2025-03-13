@@ -39,9 +39,12 @@ public partial class MainWindow : Window
         string age = txtValue2.Text;
 
         Person p = new Person();
+        
         p.name = username;
         p.age = int.Parse(age);
         vm.Persons.Add(p);
+
+        vm.TestProp = username;
        
     }
 
