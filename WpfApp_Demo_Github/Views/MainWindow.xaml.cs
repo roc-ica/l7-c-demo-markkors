@@ -44,8 +44,11 @@ public partial class MainWindow : Window
         p.age = int.Parse(age);
         vm.Persons.Add(p);
 
-        vm.TestProp = username;
-       
+        
+        Sum s = new Sum();
+        s.generate();
+        vm.TestProp = $"{s.firstPart} {s.OperatorSign} {s.secondPart} = {s.result}";
+
     }
 
     
