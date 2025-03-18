@@ -33,7 +33,7 @@
             <TextBox Name="txtValue1"/> 
             <TextBox Name="txtValue2" KeyDown="txtValue2_KeyDown"/> 
             <TextBox Name="txtValue3" Text="{Binding TestProp}"/>
-            <Button Content="Convert"
+            <Button Content="Create Sum"
                     Click="Button_Click" />
             <Button Content="SelectedItem"
                     Click="Button_Item_Selected" />

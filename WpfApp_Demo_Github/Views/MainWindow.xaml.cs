@@ -35,16 +35,15 @@ public partial class MainWindow : Window
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-        string username = txtValue1.Text;
-        string age = txtValue2.Text;
+        // voor nu haal dit even weg
+        //string username = txtValue1.Text;
+        //string age = txtValue2.Text;
+        //Person p = new Person();
+        //p.name = username;
+        //p.age = int.Parse(age);
+        //vm.Persons.Add(p);
 
-        Person p = new Person();
-        
-        p.name = username;
-        p.age = int.Parse(age);
-        vm.Persons.Add(p);
-
-        
+        // en hier het sum deel
         Sum s = new Sum();
         s.generate();
         vm.TestProp = $"{s.firstPart} {s.OperatorSign} {s.secondPart} = {s.result}";

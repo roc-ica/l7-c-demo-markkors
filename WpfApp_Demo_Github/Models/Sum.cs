@@ -85,7 +85,7 @@ namespace WpfApp_Demo_Github.Models
             int second = rnd.Next(1, 10);
             secondPart = second.ToString();
 
-            int op = rnd.Next(0, 4);
+            int op = rnd.Next(0, 3);
             Operator = (operators)op;
             
             // evaluate the sum
