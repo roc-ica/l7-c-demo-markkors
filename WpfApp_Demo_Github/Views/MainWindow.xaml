@@ -50,5 +50,24 @@
                 </ListBox.ItemTemplate>
             </ListBox>  
         </StackPanel>
+
+
+        <StackPanel Grid.Column="0"
+                    Grid.Row="1">
+            <ListBox x:Name="lstSums"
+                     ItemsSource="{Binding MySums}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding firstPart}" />
+                            <TextBlock Text="{Binding OperatorSign}" />
+                            <TextBlock Text="{Binding secondPart}" />
+                            <TextBlock Text="=" />
+                            <TextBlock Text="{Binding result}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
     </Grid>
 </Window>
