@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,8 +19,7 @@ namespace WpfApp_Demo_Github;
 public partial class MainWindow : Window
 {
     
-    private ObservableCollection<Sum> Sommen = new ObservableCollection<Sum>();
-
+    
     private Viewmodel vm = new Viewmodel();
 
     public MainWindow()
@@ -46,20 +44,9 @@ public partial class MainWindow : Window
         //vm.Persons.Add(p);
 
         // en hier het sum deel
-       
-        for (int i = 0; i < 10; i++)
-        {
-            Sum s = new Sum();
-            s.generate();
-            Sommen.Add(s);
-        } 
-        vm.MySums = Sommen;
-
-
-
-
-
-        //vm.TestProp = $"{s.firstPart} {s.OperatorSign} {s.secondPart} = {s.result}";
+        Sum s = new Sum();
+        s.generate();
+        vm.TestProp = $"{s.firstPart} {s.OperatorSign} {s.secondPart} = {s.result}";
 
     }
 

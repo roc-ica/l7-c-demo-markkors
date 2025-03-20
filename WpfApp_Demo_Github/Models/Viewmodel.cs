@@ -12,9 +12,8 @@ namespace WpfApp_Demo_Github.Models
     {
         // members
         private ObservableCollection<Person> _persons;
-        private ObservableCollection<Sum> _sums;
         private List<string> _names;
-        
+
         private string _testProp;
 
         // constructor
@@ -56,16 +55,6 @@ namespace WpfApp_Demo_Github.Models
                 OnPropertyChanged("TestProp");
             } 
         }
-
-
-        public ObservableCollection<Sum> MySums { 
-            get { return _sums; }
-            set {
-                _sums = value;
-                OnPropertyChanged("MySums");
-            }
-        }
-
     }
     
 }
