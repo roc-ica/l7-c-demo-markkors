@@ -12,9 +12,13 @@ namespace WpfApp_Demo_Github.Models
     {
         // members
         private ObservableCollection<Person> _persons;
+        private ObservableCollection<Sum> _sums = new ObservableCollection<Sum>();
+
         private List<string> _names;
 
         private string _testProp;
+        private ObservableCollection<string> _member;
+        private Sum _selectedsum;
 
         // constructor
         public Viewmodel()
@@ -47,7 +51,33 @@ namespace WpfApp_Demo_Github.Models
             }
         }
 
-       
+        public ObservableCollection<string> YourName {
+            get { return _member; }
+            set { _member = value; } 
+        }
+
+        public Sum SelectedSum { 
+            get { return _selectedsum; } 
+            set { 
+                _selectedsum = value;
+                OnPropertyChanged("SelectedSum");
+            }
+        }
+
+
+        public ObservableCollection<Sum> Sums { 
+            get
+            {
+                return _sums;
+            }
+            set
+            {
+                _sums = value;
+                OnPropertyChanged("Sums");
+            }
+        
+        }
+
     }
     
 }

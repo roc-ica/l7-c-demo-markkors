@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,6 +22,8 @@ public partial class MainWindow : Window
     
     
     private Viewmodel vm = new Viewmodel();
+    
+
 
     public MainWindow()
     {
@@ -31,6 +34,7 @@ public partial class MainWindow : Window
         //vm.Persons.Add(new Person { name = "Jane", age = 30 });
 
         this.DataContext = vm;
+        
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)
@@ -73,10 +77,19 @@ public partial class MainWindow : Window
     private void Button_Click_1(object sender, RoutedEventArgs e)
     {
         // en hier het sum deel
-        Sum s = new Sum();
-        s.generate();
-        MessageBox.Show($"De zojuist gemaakte som: {s.firstPart} {s.OperatorSign} {s.secondPart} = {s.result} \n" +
-            $"Voeg deze som toe aan de listbox");
+
+        for (int i = 0; i < 10; i++)
+        {
+            Sum s = new Sum();
+            s.generate();
+            vm.Sums.Add(s);
+        }
+
+            
+        
+
+        //MessageBox.Show($"De zojuist gemaakte som: {s.firstPart} {s.OperatorSign} {s.secondPart} = {s.result} \n" +
+        //    $"Voeg deze som toe aan de listbox");
 
 
     }

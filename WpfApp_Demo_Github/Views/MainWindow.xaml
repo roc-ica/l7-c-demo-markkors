@@ -4,10 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp_Demo_Github"
+        xmlns:vc="clr-namespace:WpfApp_Demo_Github.ValueConverters"
         xmlns:models="clr-namespace:WpfApp_Demo_Github.Models"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
+        <vc:TextToBooleanConverters x:Key="TextToBooleanConverters" />
         <Style TargetType="TextBox">
             <Setter Property="Margin"
                     Value="15" />
@@ -34,12 +36,13 @@
             <TextBox Name="txtValue2" KeyDown="txtValue2_KeyDown"/> 
             
             <Button Content="Create Person"
-                    Click="Button_Click" />
+                    Click="Button_Click"
+                    IsEnabled="{Binding Text, ElementName=txtValue1,Converter={StaticResource TextToBooleanConverters}}"/>
             <Button Content="SelectedItem"
-                    Click="Button_Item_Selected" />
+                    Click="Button_Item_Selected" IsEnabled="{Binding }"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="0">
-            <ListBox x:Name="lstPersons" ItemsSource="{Binding Persons}">
+            <ListBox x:Name="lstPersons" ItemsSource="{Binding Persons}" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -58,15 +61,35 @@
             <Button Content="Create 10 Sum(s)"
                     Click="Button_Click_1" />
             <TextBlock Text="Hier een Listbox met de sommen" />
+            <ListBox x:Name="lstSums"
+                     ItemsSource="{Binding Sums}"
+                     SelectedItem="{Binding SelectedSum}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding firstPart}" />
+                            <TextBlock Text="{Binding OperatorSign}" />
+                            <TextBlock Text="{Binding secondPart}" />
+                            <TextBlock Text="=" />
+                            <TextBlock Text="{Binding result}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </StackPanel>
 
         <StackPanel Grid.Column="1"
                     Grid.Row="1"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
-            
-            <TextBlock Text="Toon hier de geselecteerde som"
-                        />
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding SelectedSum.firstPart}" />
+                <TextBlock Text="{Binding SelectedSum.OperatorSign}" />
+                <TextBlock Text="{Binding SelectedSum.secondPart}" />
+                <TextBlock Text="=" />
+                <TextBlock Text="{Binding SelectedSum.result}" />
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
