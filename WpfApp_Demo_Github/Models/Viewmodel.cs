@@ -35,7 +35,6 @@ namespace WpfApp_Demo_Github.Models
 
         
 
-
         public ObservableCollection<Person> Persons
         {
             get { 
@@ -48,13 +47,7 @@ namespace WpfApp_Demo_Github.Models
             }
         }
 
-        public string TestProp{
-            get { return _testProp; } 
-            set { 
-                _testProp = value;
-                OnPropertyChanged("TestProp");
-            } 
-        }
+       
     }
     
 }

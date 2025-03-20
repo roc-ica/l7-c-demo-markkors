@@ -35,18 +35,19 @@ public partial class MainWindow : Window
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-        // voor nu haal dit even weg
-        //string username = txtValue1.Text;
-        //string age = txtValue2.Text;
-        //Person p = new Person();
-        //p.name = username;
-        //p.age = int.Parse(age);
-        //vm.Persons.Add(p);
+       
+    
+            string username = txtValue1.Text;
+            string age = txtValue2.Text;
+            Person p = new Person();
+            p.name = username;
 
-        // en hier het sum deel
-        Sum s = new Sum();
-        s.generate();
-        vm.TestProp = $"{s.firstPart} {s.OperatorSign} {s.secondPart} = {s.result}";
+            p.age = int.Parse(age);
+            vm.Persons.Add(p);
+       
+
+
+        
 
     }
 
@@ -65,6 +66,17 @@ public partial class MainWindow : Window
         // remove the selected item from the list
         vm.Persons.Remove(selected_person);
 
+
+
+    }
+
+    private void Button_Click_1(object sender, RoutedEventArgs e)
+    {
+        // en hier het sum deel
+        Sum s = new Sum();
+        s.generate();
+        MessageBox.Show($"De zojuist gemaakte som: {s.firstPart} {s.OperatorSign} {s.secondPart} = {s.result} \n" +
+            $"Voeg deze som toe aan de listbox");
 
 
     }
