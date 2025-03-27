@@ -1,0 +1,17 @@
+﻿opdracht c# WPF
+
+Maak de slider af
+Zorg ervoor dat tussen de volgende waarde in de titel van MainWindow wordt getoond:
+
+Op basis van de waarde van de slider (mySlider)
+
+0-25 : 		Deel 1
+>25-50 : 	Deel 2
+>50-75 : 	Deel 3
+>75 : 		Deel 4
+
+Gebruik een ValueConverter
+
+De startcode staat in Branch : Opdracht-27-3-2025 
+
+Repo: l7-c-demo-markkors (https://github.com/roc-ica/l7-c-demo-markkors.git)
