@@ -7,9 +7,12 @@
         xmlns:vc="clr-namespace:WpfApp_Demo_Github.ValueConverters"
         xmlns:models="clr-namespace:WpfApp_Demo_Github.Models"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{Binding Value, ElementName=sldMySlider}"
+        Height="450"
+        Width="800">
     <Window.Resources>
         <vc:TextToBooleanConverters x:Key="TextToBooleanConverters" />
+        <vc:TextToColorConverter x:Key="TextToColorConverter" />
         <Style TargetType="TextBox">
             <Setter Property="Margin"
                     Value="15" />
@@ -31,18 +34,37 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="0" Grid.Row="0">
-            <TextBox Name="txtValue1"/> 
-            <TextBox Name="txtValue2" KeyDown="txtValue2_KeyDown"/> 
-            
+        <StackPanel Grid.Column="0"
+                    Grid.Row="0">
+            <TextBox Name="txtValue1" />
+            <TextBox Name="txtValue2"
+                     KeyDown="txtValue2_KeyDown" />
+
             <Button Content="Create Person"
                     Click="Button_Click"
-                    IsEnabled="{Binding Text, ElementName=txtValue1,Converter={StaticResource TextToBooleanConverters}}"/>
+                    IsEnabled="{Binding Text, ElementName=txtValue1,Converter={StaticResource TextToBooleanConverters}}" />
             <Button Content="SelectedItem"
-                    Click="Button_Item_Selected" IsEnabled="{Binding }"/>
+                    Click="Button_Item_Selected"
+                    IsEnabled="{Binding }" />
+            
+            <ComboBox x:Name="cmbColor">
+                <ComboBoxItem Content="Rood" />
+                <ComboBoxItem Content="Groen" />
+                <ComboBoxItem Content="Blauw" />
+            </ComboBox>
+            <Rectangle Width="50px"
+                       Height="10px"
+                       Fill="{Binding SelectedValue, ElementName=cmbColor, Converter={StaticResource TextToColorConverter}}" />
+            <Slider x:Name="sldMySlider"
+                    Minimum="0"
+                    Maximum="100"
+                    TickFrequency="1" 
+                    />
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="0">
-            <ListBox x:Name="lstPersons" ItemsSource="{Binding Persons}" >
+        <StackPanel Grid.Column="1"
+                    Grid.Row="0">
+            <ListBox x:Name="lstPersons"
+                     ItemsSource="{Binding Persons}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -51,7 +73,7 @@
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
-            </ListBox>  
+            </ListBox>
         </StackPanel>
 
         <StackPanel Grid.Column="0"
